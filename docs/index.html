@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Quarterly Earnings — Interactive Presentation</title>
+
+  <!-- Reveal.js CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/theme/solarized.css" id="theme">
+
+  <!-- Highlight.js for code highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* small styling tweak */
+    .author-email { font-size: 0.9rem; color:#222; }
+    .foot { font-size: 0.8rem; color:#666; margin-top:12px; }
+  </style>
+</head>
+<body>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Title slide -->
+      <section>
+        <h1>Q3 Quarterly Earnings Report</h1>
+        <p class="author-email">Prepared by: Technical Consultant — verification: <b>22f1001941@ds.study.iitm.ac.in</b></p>
+        <p class="foot">Interactive Reveal.js presentation • Use arrow keys to navigate</p>
+        <aside class="notes">
+          Introduce yourself briefly. Mention that stakeholders can see the code and formulas embedded in the deck.
+        </aside>
+      </section>
+
+      <!-- Markdown slide (data-markdown) -->
+      <section data-markdown>
+        <script type="text/template">
+## Executive Summary (Markdown slide)
+
+- Revenue: **$X.YM** (YoY +8%)
+- Net margin: **Z%**
+- Highlights:
+  - Product A exceeded target
+  - Digital channels showing strong momentum
+
+_This slide is written in Markdown — easy to edit._
+        </script>
+        <aside class="notes">
+          Read the highlights. Emphasize the digital channel performance and what will be shown in later slides.
+        </aside>
+      </section>
+
+      <!-- Slide with animated fragments -->
+      <section>
+        <h2>Key Metrics</h2>
+        <ul>
+          <li class="fragment">Revenue Growth: <strong>+8% YoY</strong></li>
+          <li class="fragment">Customer Acquisition Cost (CAC): <strong>$228.8</strong></li>
+          <li class="fragment">Operating Margin: <strong>12%</strong></li>
+        </ul>
+        <aside class="notes">
+          Use fragments to reveal one metric at a time; pause for questions after the CAC is revealed.
+        </aside>
+      </section>
+
+      <!-- Code sample with syntax highlighting -->
+      <section>
+        <h2>Example: Compute YoY Growth (Python)</h2>
+        <pre><code class="language-python">
+# Simple Python snippet to compute YoY growth
+previous = 45_000_000
+current = 48_600_000
+yoy_growth = (current - previous) / previous * 100
+print(f"YoY growth = {yoy_growth:.1f}%")
+        </code></pre>
+        <aside class="notes">
+          Explain the code quickly for technical stakeholders. Note that the code is not executed here; it's shown for reproducibility.
+        </aside>
+      </section>
+
+      <!-- Slide with math (MathJax) -->
+      <section>
+        <h2>Financial Formula</h2>
+        <p>We estimate **Customer Lifetime Value (LTV)** using:</p>
+        <p>
+          $$ \mathrm{LTV} = \frac{\text{Average Order Value} \times \text{Purchase Frequency}}{\text{Churn Rate}} $$
+        </p>
+        <p>Example: AOV = \$50, freq = 3/year, churn = 0.2 → LTV = \( \dfrac{50 \times 3}{0.2} = 750 \)</p>
+        <aside class="notes">
+          Walk through the LTV formula and why improving retention reduces CAC payback time.
+        </aside>
+      </section>
+
+      <!-- Slide mixing code + fragments + small chart embed -->
+      <section>
+        <h2>Interactive Walkthrough</h2>
+
+        <p class="fragment">Step 1: Load quarterly data.</p>
+        <pre class="fragment"><code class="language-python">
+import pandas as pd
+df = pd.DataFrame({
+  "quarter": ["Q1","Q2","Q3","Q4"],
+  "cac": [225.89,225.65,233.43,230.22]
+})
+df["avg"] = df["cac"].mean()
+print(df)
+        </code></pre>
+
+        <p class="fragment">Step 2: Visualize trend (see next slide for plot)</p>
+
+        <aside class="notes">
+          Explain how the dataset is small for demo; in production use your full analytics stack. Mention reproducibility.
+        </aside>
+      </section>
+
+      <!-- Embedded image/plot slide (you will commit this PNG or generate in runtime) -->
+      <section>
+        <h2>Q4 CAC Trend vs Industry Target</h2>
+        <!-- Replace src with path to committed image, or use a generated HTML preview -->
+        <img src="assets/cac_plot.png" alt="CAC Trend" style="max-width:90%;height:auto;">
+        <aside class="notes">
+          Highlight the gap between actual average (228.8) and industry target (150). Discuss recommendations to optimize digital channels.
+        </aside>
+      </section>
+
+      <!-- Closing slide with CTA and links -->
+      <section>
+        <h2>Recommendations & Next Steps</h2>
+        <ol>
+          <li class="fragment">Optimize digital marketing channels (reallocate budget to high-LTV channels)</li>
+          <li class="fragment">Run CRO experiments to improve conversion rates</li>
+          <li class="fragment">Measure channel-level LTV:CAC and iterate</li>
+        </ol>
+
+        <p class="fragment">Contact: <b>22f1001941@ds.study.iitm.ac.in</b></p>
+
+        <aside class="notes">
+          Summarize the ask: approve budget for CRO and channel attribution work. Offer to follow up with a pilot proposal.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js and plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.js"></script>
+
+  <!-- Markdown plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/plugin/markdown/markdown.js"></script>
+
+  <!-- MathJax for equations -->
+  <script>
+    window.MathJax = {
+      tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+      svg: {fontCache: 'global'}
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <!-- Highlight.js for code -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+
+  <script>
+    Reveal.initialize({
+      hash: true,
+      plugins: [ RevealMarkdown, RevealHighlight ],
+      slideNumber: true,
+      center: true
+    });
+
+    // init highlight.js (so code blocks are highlighted)
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('pre code').forEach((el) => {
+        hljs.highlightElement(el);
+      });
+    });
+  </script>
+
+</body>
+</html>
